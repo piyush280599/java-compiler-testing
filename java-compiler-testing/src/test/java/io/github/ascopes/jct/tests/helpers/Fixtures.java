@@ -181,9 +181,12 @@ public final class Fixtures {
    * @return the mock.
    */
   public static Diagnostic<JavaFileObject> someDiagnostic() {
+    /*
     var mock = mockRaw(Diagnostic.class)
         .<Diagnostic<JavaFileObject>>upcastedTo()
         .build(withSettings().strictness(Strictness.LENIENT));
+        */
+      Diagnostic<JavaFileObject> mock = mock(withSettings().strictness(Strictness.LENIENT));
 
     createStubMethodsFor(mock);
     return mock;
@@ -195,9 +198,11 @@ public final class Fixtures {
    * @return the mock.
    */
   public static TraceDiagnostic<JavaFileObject> someTraceDiagnostic() {
+    /*
     var mock = mockRaw(TraceDiagnostic.class)
         .<TraceDiagnostic<JavaFileObject>>upcastedTo()
-        .build(withSettings().strictness(Strictness.LENIENT));
+        .build(withSettings().strictness(Strictness.LENIENT));*/
+    TraceDiagnostic<JavaFileObject> mock = mock(withSettings().strictness(Strictness.LENIENT));
 
     createStubMethodsFor(mock);
     when(mock.getTimestamp()).thenReturn(Instant.now());
